@@ -114,7 +114,11 @@ class Timeline:
         """
         instant = self.__normalize_datetime(instant)
         for timespan, event in self.iterator():
-            if timespan.begin_time is not None and timespan.begin_time > instant:
+            if (
+                timespan.begin_time is not None
+                and timespan.begin_time.tzinfo is not None
+                and timespan.begin_time > instant
+            ):
                 yield event
 
     def at(self, instant: DatetimeLike) -> Iterator[Event]:

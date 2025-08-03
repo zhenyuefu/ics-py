@@ -34,7 +34,7 @@ class CalendarAttrs(Component):
 
 class Calendar(CalendarAttrs):
     """
-    Represents an unique RFC 5545 iCalendar.
+    Represents a unique RFC 5545 iCalendar.
 
     Attributes:
 
@@ -46,7 +46,7 @@ class Calendar(CalendarAttrs):
 
     NAME = "VCALENDAR"
     DEFAULT_VERSION: ClassVar[str] = "2.0"
-    DEFAULT_PRODID: ClassVar[str] = "ics.py 0.8.0-dev0 - http://git.io/lLljaA"
+    DEFAULT_PRODID: ClassVar[str] = "ics.py 0.8.0.dev0 - http://git.io/lLljaA"
 
     def __init__(
         self,
@@ -110,8 +110,8 @@ class Calendar(CalendarAttrs):
     @classmethod
     def parse_multiple(cls, string):
         """ "
-        Parses an input string that may contain mutiple calendars
-        and retruns a list of :class:`ics.event.Calendar`
+        Parses an input string that may contain multiple calendars
+        and returns a list of :class:`ics.event.Calendar`
         """
         containers = string_to_containers(string)
         return [cls(imports=c) for c in containers]
